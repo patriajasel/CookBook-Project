@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cookbook Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/logincss.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <a href="main.html" class="header-brand">Cookbook</a>
+      <nav>
+        <ul>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="search-page.html">Search</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="container forms">
+        <div class="form login">
+          <div class="form-content">
+            <h1>Sign In</h1>
+            <form action="#">
+              <div class="field input-field">
+                <input id="email" type="email" placeholder="Email" required>
+              </div>
+              <div class="field input-field">
+                <input id="password" type="password" placeholder="Password" class="password" required>
+                <i class="bx bx-hide eye-icon"></i>
+              </div>
+              <div class="form-link">
+                <a href="#" class="forgot-pass">Forgot Password?</a>
+              </div>
+              <div class="field button-field">
+                <button id="Login" type="button">Sign In</button>
+              </div>
+            </form>
+            <div class="form-link here">
+              <span>Not a member yet? <a href="signup.html" class="link signup-link">Sign up here</a></span>
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="media-options">
+            <a href="#" class="field facebook"><i class='bx bxl-facebook facebook-icon'></i> <span>Login with Facebook</span> </a>
+          </div>
+
+          <div class="media-options">
+            <a href="#" class="field google"><img src="google.png" class="google google-img"><span>Login with Google</span></a>
+          </div>
+        </div>
+
+      </section>
+    </main>
+    <footer>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Discover</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <div class="footer-buttons">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-youtube"></a>
+      </div>
+    </footer>
+
+    <!-- JS Script -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+      import { getDatabase,update,ref } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAbssBn3kn-Yl3JDPhAaveGl-_LQKK7iqU",
+        authDomain: "cookbookcapstone.firebaseapp.com",
+        databaseURL: "https://cookbookcapstone-default-rtdb.firebaseio.com",
+        projectId: "cookbookcapstone",
+        storageBucket: "cookbookcapstone.appspot.com",
+        messagingSenderId: "785262813455",
+        appId: "1:785262813455:web:a5861d5beca474b37e1e7a"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+      const database = getDatabase(app);
+
+      Login.addEventListener('click', (e) => {
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            // ...
+            var loginDate = new Date();
+            update(ref(database, 'users/' + user.uid), {
+                last_login : loginDate
+              })
+              .then(() => {
+                // Data saved successfully!
+                alert('Signed In successfully');
+                window.location.replace('./index.html');
+              })
+              .catch((error) => {
+                // The write failed...
+                alert(error);
+              });
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            alert(errorMessage);
+          });
+      });
+
+    </script>
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

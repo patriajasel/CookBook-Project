@@ -1,0 +1,428 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/*DESIGN CODE*/
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  background-image: url(../login-background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+header {
+  background-color: #02E015;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 150px;
+}
+
+header .header-brand {
+  font-family: Oleo Script;
+  font-size: 30px;
+  font-weight: 900;
+  text-shadow: 2px 2px #000000;
+  color: #ffffff;
+  display: block;
+  margin: 31px 0;
+  text-align: left;
+  line-height: 38px;
+  padding: 0 20px 0 40px;
+  border-right: 3px solid #ffffff;
+  float: left;
+}
+
+header nav ul {
+  margin: 20px 0px 0px 20px;
+  float: left;
+}
+
+header nav ul li {
+  display: inline-block;
+  float: center;
+  list-style: none;
+  padding: 0 16px;
+}
+
+header nav ul li a {
+  font-family: Catamaran;
+  font-size: 16px;
+  color: #fffff3;
+  line-height: 60px;
+}
+
+
+/*LOGIN & SIGNUP CSS*/
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+}
+
+.form {
+  background: #fff;
+  border-radius: 6px;
+  width: 450px;
+  padding: 30px;
+}
+
+.forms.show-signup .form.signup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.form h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #232836;
+  text-align: center;
+
+}
+
+form {
+  margin-top: 30px;
+}
+
+.form .field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.field input, .field button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px
+}
+
+.field input {
+  outline: none;
+  padding: 0 15px;
+  border: 1px solid #CACACA;
+}
+
+.field input:focus {
+    border-bottom-width: 2px;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #8b8b8b;
+  cursor: pointer;
+  padding: 5px
+}
+
+.field button {
+  background-color: #0171d3;
+  color: #FFF;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.field button:hover {
+  background-color: #016dcb;
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-link span .form-link span a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #232836;
+}
+
+.form a {
+  color: #0171d3;
+  text-decoration: none;
+}
+
+.form-content a:hover {
+  text-decoration: underline;
+}
+
+.line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 36px 0;
+  background-color: #d4d4d4;
+}
+
+.line::before {
+  content: 'Or';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFF;
+  color: #232836;
+  padding: 0 15px;
+
+}
+
+.media-options a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.media-options span {
+  padding-left: 10px;
+}
+
+
+a.facebook {
+  color: #FFF;
+  background-color: #4267b2;
+}
+
+a.facebook .facebook-icon {
+  height: 28px;
+  width: 28px;
+  color: #0171d3;
+  font-size: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+}
+
+.facebook-icon img.google-img {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+img.google-img {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+
+a.google {
+  border: 1px solid #CACACA;
+}
+
+a.google span {
+  font-weight: 500;
+  opacity: 0.6;
+  color: #232836;
+}
+
+/*FOOTER*/
+footer {
+  width: 100%;
+  padding: 40px 40px;
+  margin-top: 150px;
+  background-color:#02E015;
+  overflow: hidden;
+}
+
+footer ul {
+  width: fit-content;
+  float: left;
+  padding-left: 20px;
+}
+
+footer ul li {
+  display: block;
+  list-style: none;
+  line-height: 25px;
+}
+
+footer ul li a {
+  font-family: Catamaran;
+  font-size: 16px;
+  color: white;
+  text-shadow: 2px 2px 5px #000000;
+}
+
+footer .fa {
+  width: 20px;
+  height: 20px;
+  color: white;
+  text-shadow: 2px 2px 5px #000000;
+}
+
+
+.footer-buttons {
+  width: 60px;
+  float: right;
+}
+
+.footer-buttons a {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media (max-width:1000px){
+  .content {
+    width: 45%;
+  }
+
+}
+
+@media(max-width:750px){
+  .content {
+    width: 100%;
+  }
+
+  header .header-brand {
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px 0 20px;
+    border-right: none;
+    line-height: 0;
+    float: none;
+  }
+
+  header nav ul {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    float: none;
+  }
+
+  header nav ul li {
+    display: inline-block;
+    float: center;
+    list-style: none;
+    padding: 0 16px;
+  }
+
+  header nav ul li a {
+    font-family: Catamaran;
+    font-size: 16px;
+    color: #fffff3;
+  }
+
+
+
+  .form {
+    padding: 15px 20px;
+  }
+
+}

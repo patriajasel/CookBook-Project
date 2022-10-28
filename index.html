@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cookbook Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <a href="main.html" class="header-brand">Cookbook</a>
+      <nav>
+        <ul>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="search-page.html">Search</a></li>
+          <li class="login_li"><a href="login.html">Sign In</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar">
+        <div class="logo-details">
+          <div class="logo_name">Menu</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+            <a href="#">
+              <i class='bx bxs-user' ></i>
+              <span class="links_name">Profile</span>
+            </a>
+             <span class="tooltip">Profile</span>
+          </li>
+          <li>
+           <a href="#">
+             <i class='bx bxs-food-menu' ></i>
+             <span class="links_name">My Recipes</span>
+           </a>
+           <span class="tooltip">My Recipes</span>
+         </li>
+         <li>
+           <a href="#">
+             <i class='bx bxs-heart' ></i>
+             <span class="links_name">Liked Recipes</span>
+           </a>
+           <span class="tooltip">Liked Recipes</span>
+         </li>
+         <li>
+           <a href="#">
+             <i class='bx bxs-bookmarks' ></i>
+             <span class="links_name">Bookmarked Recipes</span>
+           </a>
+           <span class="tooltip">Bookmarked Recipes</span>
+         </li>
+         <li class="profile">
+             <div class="profile-details">
+               <img src="profile-sample.jpg" alt="profileImg">
+               <div class="name_job">
+                 <div class="name">Chitae</div>
+                 <div class="job">Ganda Lalake</div>
+               </div>
+             </div>
+             <button type="button"><i class='bx bx-log-out' id="log_out" ></i></button>
+         </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <section class="main-banner">
+        <div class="vertical-center">
+        <h1>CookBook Recipes</h1>
+        <h2>"Food Recipes globally that you can find"</h2>
+        </div>
+      </section>
+      <div class="food-gallery">
+        <div class="content">
+          <img src="chicken-adobo.jpg" alt="recipe picture">
+          <h3>Chicken Adobo</h3>
+          <p>wala akong maisip na ilagay kaya mamaya na ko mag iisip</p>
+          <ul>
+            <li><i class="fa fa-heart"></i></li>
+            <li><i class="fa fa-bookmark"></i></li>
+            <li><i class="fa fa-share"></i></li>
+            <li><i class="fa fa-comment"></i></li>
+          </ul>
+          <button class="view-button">View</button>
+        </div>
+
+        <div class="content">
+          <img src="menudo.jpg" alt="recipe picture">
+          <h3>Menudo</h3>
+          <p>wala akong maisip na ilagay kaya mamaya na ko mag iisip</p>
+          <ul>
+            <li><i class="fa fa-heart"></i></li>
+            <li><i class="fa fa-bookmark"></i></li>
+            <li><i class="fa fa-share"></i></li>
+            <li><i class="fa fa-comment"></i></li>
+          </ul>
+          <button class="view-button">View</button>
+        </div>
+
+        <div class="content">
+          <img src="mango-graham.jpg" alt="recipe picture">
+          <h3>Mango Graham</h3>
+          <p>wala akong maisip na ilagay kaya mamaya na ko mag iisip</p>
+          <ul>
+            <li><i class="fa fa-heart"></i></li>
+            <li><i class="fa fa-bookmark"></i></li>
+            <li><i class="fa fa-share"></i></li>
+            <li><i class="fa fa-comment"></i></li>
+          </ul>
+          <button class="view-button">View</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Discover</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <div class="footer-buttons">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-youtube"></a>
+      </div>
+    </footer>
+    <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }
+    </script>
+  </body>
+</html>
