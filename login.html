@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--For modal-->
+    <script src="https://unpkg.com/htmlincludejs"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
     <header>
@@ -81,7 +87,7 @@
         <a href="#" class="fa fa-youtube"></a>
       </div>
     </footer>
-
+    <include src="assets/alertModal.html"></include>
     <!-- JS Script -->
     <script type="module">
       // Import the functions you need from the SDKs you need
@@ -118,29 +124,41 @@
             const user = userCredential.user;
             // ...
             var loginDate = new Date();
+            
             update(ref(database, 'users/' + user.uid), {
                 last_login : loginDate
               })
               .then(() => {
                 // Data saved successfully!
-                alert('Signed In successfully');
+                $('#modal .modal-title').html("Login")
+                $('#modal .modal-body').html("Signed In successfully")
+                $('#modal').modal('show')
+                
+                window.addEventListener('beforeunload', function (e) {
+                  e.preventDefault();
+                });
                 window.location.replace('./index.html');
               })
               .catch((error) => {
                 // The write failed...
-                alert(error);
+                //alert(error);
+                $('#modal .modal-title').html("ERROR!")
+                $('#modal .modal-body').html(error)
+                $('#modal').modal('show')
               });
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             // ..
-            alert(errorMessage);
+            //alert(errorMessage);
+            $('#modal .modal-title').html("ERROR!")
+            $('#modal .modal-body').html("Login failed; Invalid user ID or password.")
+            $('#modal').modal('show')
           });
       });
 
     </script>
     <script src="js/script.js"></script>
-
   </body>
 </html>
