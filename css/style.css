@@ -632,7 +632,8 @@ box-shadow:  7px 7px 14px #696969,
 
 /*Recipe Information Section*/
 .recipe-info {
-  margin: 50px 300px auto;
+  margin: 20px 300px;
+  padding: 20px;
   border-radius: 30px;
   background-color: #FFFFFF;
   min-height: 100vh;
@@ -712,12 +713,111 @@ box-shadow:  7px 7px 14px #696969,
 }
 
 .ingredients-container {
-  margin: 0 50px;
+  margin: 20px 50px;
   width: 100%;
-  min-height: 300px;
-  border: 5px solid #0AF71E;
-  border-radius: 20%;
-  background-color:#D0FEDA;
+  height: auto;
+  border: 3px solid #0AF71E;
+}
+
+.ingredients-container h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  font-style: italic;
+  color: #805336;
+  letter-spacing: 5px;
+  margin: 50px 40px;
+}
+
+.ingredients {
+  width: 100%;
+  height: 1px;
+  background: #0AF71E;
+}
+
+.ingredients-container ul {
+  padding: 40px 45px;
+}
+
+.ingredients-container ul li {
+  font-family: Catamaran;
+  font-size: 22px;
+  line-height: 50px;
+}
+
+.procedures-section h1 {
+  font-family: Pacifico;
+  font-size: 40px;
+  font-style: italic;
+  letter-spacing: 5px;
+  margin: 50px 40px;
+  color: #805336;
+}
+
+.steps {
+  margin: 0px 50px;
+  line-height: 50px;
+  padding-bottom: 20px;
+  font-family: Catamaran;
+}
+
+.steps li {
+  list-style: decimal;
+  font-size: 18px;
+}
+
+.steps li span {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.comment-section {
+  margin: 20px;
+  padding: 10px;
+  background: #f3f3f3;
+  box-shadow: 0 3px 10px;
+  border-radius: 10px;
+}
+
+.comment-section h2 {
+  margin: 10px;
+  padding: 10px;
+  font-size: 30px;
+  font-family: 'Times New Roman';
+}
+
+.comment-form form {
+  padding: 10px;
+  margin: 10px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  border-radius: 5px;
+  border-color: #bfbfbf;
+}
+
+.comment-form textarea:focus {
+  border-width: 2px;
+  border-color: #04700D;
+}
+
+.comment-form form button {
+  border-color: #04700D;
+  border-radius: 10px;
+  margin: 10px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.comment-section form button:hover {
+  background: #00A30E;
 }
 
 .mySlides {
