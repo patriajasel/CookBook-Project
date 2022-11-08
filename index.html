@@ -131,17 +131,19 @@
         <div class="container">
             <label for="show" class="close-btn" title="close">×</label>
             <h1>New Recipe Form</h1>
-            <form action="#">
+            <form>
                 <label>Recipe Name:</label>
-                <input type="text" placeholder="Write recipe name...">
+                <input id="recipe-name" type="text" placeholder="Write recipe name...">
                 <label>Description:</label>
-                <input type="text" placeholder="Write description...">
+                <input id="recipe-des" type="text" placeholder="Write description...">
                 <label>Ingredients:</label>
-                <input type="text" placeholder="Write description...">
+                <ul>
+                  <input id="recipe-ingred" type="text" onkeydown="return (event.keyCode!=13);">
+                </ul>
                 <label>Procedures:</label>
-                <input type="text" placeholder="Write description...">
-                <button type="button" name  ="add-step"><i class='bx bx-plus-medical'></i>Add New Step</button>
-                <button>Submit Recipe</button>
+                <input id="recipe-proc" type="text" placeholder="Add new step...">
+                <button id="add-new" type="button" name="add-step"><i class='bx bx-plus-medical'></i>Add New Step</button>
+                <button id="recipe-add">Submit Recipe</button>
             </form>
         </div>
       </div>
@@ -162,7 +164,59 @@
       </div>
     </footer>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/addToFirestore.js"></script>
+    <script type="text/javascript" src="js/ingredients.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js"
+      import { getFirestore, doc, getDoc, setDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAbssBn3kn-Yl3JDPhAaveGl-_LQKK7iqU",
+        authDomain: "cookbookcapstone.firebaseapp.com",
+        databaseURL: "https://cookbookcapstone-default-rtdb.firebaseio.com",
+        projectId: "cookbookcapstone",
+        storageBucket: "cookbookcapstone.appspot.com",
+        messagingSenderId: "785262813455",
+        appId: "1:785262813455:web:a5861d5beca474b37e1e7a"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const firestore = getFirestore();
+
+      let recName = document.getElementById("recipe-name");
+      let recDescription = document.getElementById("recipe-des");
+      let recIngredients = document.getElementById("recipe-ingred");
+      let recProcedure = document.getElementById("recipe-proc");
+      let addRecipe = document.getElementById("recipe-add");
+
+      addRecipe.addEventListener("click", addRecipeFirestore);
+
+      async function addRecipeFirestore() {
+
+        var ref = collection(firestore, "Recipes");
+
+        const docRef = await addDoc (
+          ref, {
+            RecipeName: recName.value,
+            Description: recDescription.value,
+            Ingredients: recIngredients.value,
+            recProcedure: recProcedure.value
+          }
+        )
+        .then(()=>{
+          alert("Adding Recipe Success");
+        })
+        .catch((erro)=>{
+          alert("Adding Recipe Failed:" + error);
+        });
+
+      }
+
+    </script>
     <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
@@ -181,5 +235,6 @@
      }
     }
     </script>
+
   </body>
 </html>

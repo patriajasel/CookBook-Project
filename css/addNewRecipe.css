@@ -73,6 +73,44 @@ input[type="checkbox"]{
     margin: 20px;
 }
 
+.container ul {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #02AD10;
+  border-radius: 5px;
+  margin: 12px 0;
+  padding: 7px;
+}
+
+.container ul input {
+  outline: none;
+  border: none;
+  flex: 1;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.container ul li {
+  list-style: none;
+  background: #f2f2f2;
+  justify-content: center;
+  margin: 4px 3px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  border: 1px solid #e3d1e1;
+}
+
+.container ul li i {
+  height: 20px;
+  width: 20px;
+  background: #dfdfdf;
+  font-size: 18px;
+  border-radius: 50%;
+  margin-left: 8px;
+  justify-content: center;
+  color: #808080;
+}
+
 .container label{
     display: block;
     color: black;
@@ -92,9 +130,6 @@ input[type="checkbox"]{
     margin-bottom: 30px;
 }
 
-.container input:focus {
-  border: none;
-}
 
 button[name="add-step"] {
   float: right;
