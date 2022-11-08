@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/addNewRecipe.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap" rel="stylesheet">
@@ -125,6 +125,26 @@
           <button class="view-button">View</button>
         </div>
       </div>
+      <div class="add-recipe">
+        <input type="checkbox" id="show">
+         <label for="show" class="show-btn"><i class='bx bx-plus-medical'></i>Add New Recipe</label>
+        <div class="container">
+            <label for="show" class="close-btn" title="close">×</label>
+            <h1>New Recipe Form</h1>
+            <form action="#">
+                <label>Recipe Name:</label>
+                <input type="text" placeholder="Write recipe name...">
+                <label>Description:</label>
+                <input type="text" placeholder="Write description...">
+                <label>Ingredients:</label>
+                <input type="text" placeholder="Write description...">
+                <label>Procedures:</label>
+                <input type="text" placeholder="Write description...">
+                <button type="button" name  ="add-step"><i class='bx bx-plus-medical'></i>Add New Step</button>
+                <button>Submit Recipe</button>
+            </form>
+        </div>
+      </div>
     </main>
     <footer>
       <ul class="footer-links">
@@ -141,19 +161,15 @@
         <a href="#" class="fa fa-youtube"></a>
       </div>
     </footer>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/addToFirestore.js"></script>
     <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
 
     closeBtn.addEventListener("click", ()=>{
       sidebar.classList.toggle("open");
       menuBtnChange();//calling the function(optional)
-    });
-
-    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-      sidebar.classList.toggle("open");
-      menuBtnChange(); //calling the function(optional)
     });
 
     // following are the code to change sidebar button(optional)
@@ -165,6 +181,5 @@
      }
     }
     </script>
-    <script type="text/javascript" src=".js/script.js"></script>
   </body>
 </html>
