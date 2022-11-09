@@ -133,17 +133,23 @@
             <h1>New Recipe Form</h1>
             <form>
                 <label>Recipe Name:</label>
-                <input id="recipe-name" type="text" placeholder="Write recipe name...">
+                <input id="recipe-name" type="text" placeholder="Write recipe name..." required>
                 <label>Description:</label>
-                <input id="recipe-des" type="text" placeholder="Write description...">
+                <input id="recipe-des" type="text" placeholder="Write description..." required>
                 <label>Ingredients:</label>
-                <ul>
-                  <input id="recipe-ingred" type="text" onkeydown="return (event.keyCode!=13);">
+                <p>Note: Do not include measurements</p>
+                <ul id="ul-ingred">
+                  <input id="recipe-ingred" type="text" placeholder="Add ingredients..." onkeydown="return (event.keyCode!=13);"required>
                 </ul>
-                <label>Procedures:</label>
-                <input id="recipe-proc" type="text" placeholder="Add new step...">
-                <button id="add-new" type="button" name="add-step"><i class='bx bx-plus-medical'></i>Add New Step</button>
-                <button id="recipe-add">Submit Recipe</button>
+                <div id="procedures">
+                  <label>Procedures:</label>
+                  <input id="recipe-steps" type="text" placeholder="Add new step..."required>
+                </div>
+                <div>
+                  <button id="remove-step" type="button"  name="remove-step"><i class='bx bx-x'></i>Remove Field</button>
+                  <button id="add-new" type="button" name="add-step"><i class='bx bx-plus-medical'></i>Add New Step</button>
+                </div>
+                <button id="recipe-add" >Submit Recipe</button>
             </form>
         </div>
       </div>

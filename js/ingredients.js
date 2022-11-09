@@ -1,8 +1,13 @@
 
-const ul = document.querySelector("ul");
+let ul = document.getElementById("ul-ingred");
 let input = document.getElementById("recipe-ingred");
+let procedures = document.getElementById("procedures");
+let recipeStep = document.getElementById("recipe-steps");
+let addStep = document.getElementById("add-new");
+let removeStep = document.getElementById("remove-step");
 
 let tags = [];
+let steps = [];
 
 function createTag() {
   ul.querySelectorAll("li").forEach(li => li.remove());
@@ -32,3 +37,17 @@ function addTag(e) {
 }
 
 input.addEventListener("keyup", addTag);
+
+addStep.onclick = function(){
+  var newField = document.createElement('input');
+  newField.setAttribute('type', 'text');
+  newField.setAttribute('placeholder', 'Add new step...');
+  procedures.appendChild(newField);
+}
+
+removeStep.onclick = function() {
+  var input_tags = procedures.getElementsByTagName('input');
+  if(input_tags.length > 1){
+    procedures.removeChild(input_tags[(input_tags.length) - 1]);
+  }
+}

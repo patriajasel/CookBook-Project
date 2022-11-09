@@ -139,6 +139,14 @@ button[name="add-step"] {
   border-radius: 10px;
 }
 
+button[name="remove-step"] {
+  float: left;
+  width: 200px;
+  margin-bottom: 20px;
+  margin-top: -20px;
+  border-radius: 10px;
+}
+
 button{
     display: block;
     width: 100%;
