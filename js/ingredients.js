@@ -5,6 +5,9 @@ let procedures = document.getElementById("procedures");
 let recipeStep = document.getElementById("recipe-steps");
 let addStep = document.getElementById("add-new");
 let removeStep = document.getElementById("remove-step");
+let addRecipe = document.getElementById("recipe-add");
+
+var num = 0;
 
 let tags = [];
 let steps = [];
@@ -29,6 +32,7 @@ function addTag(e) {
     if (tag.length > 1 && !tags.includes(tag)) {
       tag.split(',').forEach(tag=>{
         tags.push(tag);
+        console.log(tags);
         createTag();
       })
     }
@@ -36,13 +40,24 @@ function addTag(e) {
   }
 }
 
+function addStepToList(id){
+  let step = document.getElementById(id).previousSibling.value;
+  steps.push(step);
+  console.log(steps);
+}
+
 input.addEventListener("keyup", addTag);
 
 addStep.onclick = function(){
+
   var newField = document.createElement('input');
   newField.setAttribute('type', 'text');
   newField.setAttribute('placeholder', 'Add new step...');
+  newField.setAttribute('id', 'recipesteps' + num);
+  newField.setAttribute('required', 'true');
   procedures.appendChild(newField);
+  addStepToList(newField.getAttribute('id'));
+  num++;
 }
 
 removeStep.onclick = function() {
